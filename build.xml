@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with XMLSpear -->
+<project name="TestNGTest" default="run" basedir=".">
+	<!-- 定义测试源代码的目录路径 -->
+	<property name="srcDir" location="${basedir}/src"/>
+	<!--定义测试报告输入目录-->
+	<property name="reportDir" location="${basedir}/test-output"/>
+	<!-- 定义库依赖的jar文件目录 -->
+	<property name="libDir" location="${basedir}/lib/jar/"/>
+	<!--定义编译文件输出目录-->
+	<property name="binDir" location="${basedir}/bin"/>
+	<property name="displayDetails" value="true"/>
+	<!-- Define<testng> task -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<pathelement location="lib/jar/testng-7.0.0.jar"/>
+		</classpath>
+	</taskdef>
+	<!-- path元素用来表示一个类路径  refid：对当前构建文件中某处定义的一个path的引用 location：表示一个文件或目录，ant在内部将此扩展为一个绝对路径-->
+	<path id="classpath">
+		<!-- fileset定义一组文件，dir：表示fileset的基目录 includes：需要包含的文件模式列表 -->
+		<fileset dir="${libDir}" includes="**/*.jar"/>
+		<pathelement location="${binDir}"/>
+	</path>
+	<!-- target标签，name：目标名称，必须有  depends：依赖的目标 -->
+	<target name="clean">
+		<!-- delete标签，删除一个文件或一组文件。verbose：指定是否列出所删除的文件，默认不列出 -->
+		<delete verbose="${displayDetails}" includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${reportDir}"/>
+			<fileset dir="${binDir}"/>
+		</delete>
+		<mkdir dir="${binDir}"/>
+		<mkdir dir="${reportDir}"/>
+	</target>
+	<target name="compile" depends="clean">
+		<!-- javac标签，用于编译一个或一组java文件。srcDir：源程序的目录 destdir：class文件的输出目录 verbose：表示提供详细的输出信息  classpath：所使用的类的路径-->
+		<javac srcdir="${srcDir}" destdir="${binDir}" encoding="UTF-8" verbose="${displayDetails}"
+			failonerror="true">
+			<classpath refid="classpath"/>
+			<!--<src path="${srcDir}"/>-->
+			<!--<include name="**/*"/>-->
+			<!--<include name="**/*.xml"/>-->
+		</javac>
+		<copy todir="${binDir}">
+			<fileset dir="${srcDir}">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>
+	</target>
+	<target name="run" depends="compile">
+		<!--outputdir表示报告输出目录-->
+		<testng outputdir="${reportDir}" classpathref="classpath">
+			<xmlfileset dir="${binDir}" includes="*.xml"/>
+		</testng>
+	</target>
+</project>
