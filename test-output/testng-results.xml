@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="10886" started-at="2020-02-04T20:45:10 CST" finished-at="2020-02-04T20:45:21 CST">
+  <suite name="Default suite" duration-ms="9012" started-at="2020-02-06T20:32:45 CST" finished-at="2020-02-06T20:32:54 CST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="10886" started-at="2020-02-04T20:45:10 CST" finished-at="2020-02-04T20:45:21 CST">
-      <class name="test.baidu.BaiduTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test.baidu.BaiduTest@77b52d12]" name="beforeTest" is-config="true" duration-ms="4083" started-at="2020-02-04T20:45:10 CST" finished-at="2020-02-04T20:45:14 CST">
+    <test name="Default test" duration-ms="9012" started-at="2020-02-06T20:32:45 CST" finished-at="2020-02-06T20:32:54 CST">
+      <class name="project.seleniumGrid.Grid">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:project.seleniumGrid.Grid@3e9b1010]" name="setUp" is-config="true" duration-ms="4332" started-at="2020-02-06T20:32:45 CST" finished-at="2020-02-06T20:32:49 CST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="queryTest()[pri:0, instance:test.baidu.BaiduTest@77b52d12]" name="queryTest" duration-ms="3154" started-at="2020-02-04T20:45:14 CST" finished-at="2020-02-04T20:45:17 CST">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="simpleTest()[pri:0, instance:project.seleniumGrid.Grid@3e9b1010]" name="simpleTest" duration-ms="3586" started-at="2020-02-06T20:32:49 CST" finished-at="2020-02-06T20:32:53 CST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- queryTest -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:test.baidu.BaiduTest@77b52d12]" name="afterTest" is-config="true" duration-ms="3634" started-at="2020-02-04T20:45:17 CST" finished-at="2020-02-04T20:45:21 CST">
+        </test-method> <!-- simpleTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:project.seleniumGrid.Grid@3e9b1010]" name="afterTest" is-config="true" duration-ms="1068" started-at="2020-02-06T20:32:53 CST" finished-at="2020-02-06T20:32:54 CST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- test.baidu.BaiduTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- project.seleniumGrid.Grid -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
